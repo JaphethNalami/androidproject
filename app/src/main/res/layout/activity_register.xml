@@ -13,13 +13,12 @@
         android:text="Register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:layout_gravity="center"
         android:textAlignment="center"
         android:ems="10"
         android:layout_marginTop="60dp"
-        android:textSize="40sp"
-        ></TextView>
+        android:textSize="40sp"></TextView>
+
     <LinearLayout
         android:id="@+id/container"
         android:layout_width="wrap_content"
@@ -34,7 +33,6 @@
         tools:layout_editor_absoluteY="238dp"
         tools:ignore="MissingConstraints">
 
-
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="wrap_content"
@@ -47,64 +45,70 @@
             tools:ignore="ContentDescription" />
 
         <EditText
-            android:id="@+id/username_s"
+            android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:ems="10"
-            android:hint="user name"
-            android:inputType="text"
+            android:hint="Email"
+            android:inputType="textWebEmailAddress"
             android:layout_gravity="center"
             tools:layout_editor_absoluteX="256dp"
-            tools:layout_editor_absoluteY="241dp" />
+            tools:layout_editor_absoluteY="241dp">
+
+        </EditText>
 
         <EditText
-            android:id="@+id/regno"
+            android:id="@+id/reg_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ems="10"
             android:layout_margin="10dp"
             android:hint="Registration number"
-            android:inputType="text"></EditText>
+            android:inputType="text" />
 
         <EditText
-            android:id="@+id/phone_s"
+            android:id="@+id/phone_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ems="10"
             android:layout_margin="10dp"
             android:hint="Phone number"
-            android:inputType="number"></EditText>
+            android:inputType="number">
 
-
+        </EditText>
 
         <EditText
-            android:id="@+id/password_s"
+            android:id="@+id/pass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ems="10"
-            android:hint="password"
+            android:hint="Password"
             android:inputType="textPassword"
             tools:layout_editor_absoluteX="256dp"
             tools:layout_editor_absoluteY="362dp" />
 
+        <EditText
+            android:id="@+id/confirm_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:hint="Confirm password"
+            android:inputType="textPassword"
+            tools:layout_editor_absoluteX="256dp"
+            tools:layout_editor_absoluteY="414dp" />
 
         <Button
-            android:id="@+id/login_s"
+            android:id="@+id/btn_reg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Submit"
+            android:text="Register"
             android:layout_margin="20dp"
             tools:layout_editor_absoluteX="20dp"
             tools:layout_editor_absoluteY="541dp" />
-
     </LinearLayout>
-
-
-
-
-
 </LinearLayout>
