@@ -50,12 +50,12 @@
             tools:ignore="ContentDescription" />
 
         <EditText
-            android:id="@+id/username_s"
+            android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:ems="10"
-            android:hint="user name"
+            android:hint="Email"
             android:inputType="text"
             android:layout_gravity="center"
             tools:layout_editor_absoluteX="256dp"
@@ -71,12 +71,12 @@
             tools:layout_editor_absoluteY="341dp" />
 
         <EditText
-            android:id="@+id/password_s"
+            android:id="@+id/pass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ems="10"
-            android:hint="passwod"
+            android:hint="Password"
             android:inputType="textPassword"
             tools:layout_editor_absoluteX="256dp"
             tools:layout_editor_absoluteY="362dp" />
@@ -94,7 +94,7 @@
             tools:layout_editor_absoluteX="267dp"
             tools:layout_editor_absoluteY="453dp" />
         <Button
-            android:id="@+id/login_s"
+            android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login"
