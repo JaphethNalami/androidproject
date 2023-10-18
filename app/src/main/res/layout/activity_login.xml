@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/bg7"
+    >
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Account"
+        android:layout_marginTop="30dp"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:textSize="40sp"
+
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        android:background="#37876969"
+        android:padding="20dp"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="89dp"
+        tools:layout_editor_absoluteY="238dp"
+        tools:ignore="MissingConstraints">
+
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/account"
+            tools:layout_editor_absoluteX="47dp"
+            tools:layout_editor_absoluteY="214dp"
+            tools:ignore="ContentDescription" />
+
+        <EditText
+            android:id="@+id/username_s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:ems="10"
+            android:hint="user name"
+            android:inputType="text"
+            android:layout_gravity="center"
+            tools:layout_editor_absoluteX="256dp"
+            tools:layout_editor_absoluteY="241dp" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="77dp"
+            android:layout_height="81dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/lock"
+            tools:layout_editor_absoluteX="129dp"
+            tools:layout_editor_absoluteY="341dp" />
+
+        <EditText
+            android:id="@+id/password_s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:hint="passwod"
+            android:inputType="textPassword"
+            tools:layout_editor_absoluteX="256dp"
+            tools:layout_editor_absoluteY="362dp" />
+
+
+
+
+
+        <CheckBox
+            android:id="@+id/checkBox_s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Remember me"
+            tools:layout_editor_absoluteX="267dp"
+            tools:layout_editor_absoluteY="453dp" />
+        <Button
+            android:id="@+id/login_s"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="541dp"
+            android:background="@color/red"/>
+        <Button
+            android:id="@+id/regnew"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New user Register"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            tools:layout_editor_absoluteX="170dp"
+            android:background="#E91E63"
+            tools:layout_editor_absoluteY="682dp" />
+    </LinearLayout>
+
+</LinearLayout>
+
+

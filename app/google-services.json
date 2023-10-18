@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "475280425073",
+    "project_id": "examinations-b1212",
+    "storage_bucket": "examinations-b1212.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:475280425073:android:3baff9d182ffd4b6265bd0",
+        "android_client_info": {
+          "package_name": "com.example.examinations"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArm2X_Vr8R_ZFONmkE6YXSbDiSoy7pI9o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

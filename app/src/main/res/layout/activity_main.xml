@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:layout_gravity="center"
+    tools:context=".MainActivity"
+    android:background="@drawable/bg6">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="144dp"
+        app:srcCompat="@drawable/app1"></ImageView>
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome Back!"
+        android:layout_marginTop="30dp"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:textSize="40sp"
+
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        android:background="#37876969"
+        android:padding="20dp"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="89dp"
+        tools:layout_editor_absoluteY="238dp"
+        tools:ignore="MissingConstraints">
+
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            app:srcCompat="@drawable/account"
+            tools:ignore="ContentDescription"
+            tools:layout_editor_absoluteX="47dp"
+            tools:layout_editor_absoluteY="214dp" />
+
+
+
+        <Button
+            android:id="@+id/student"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Student"
+            android:layout_margin="20dp"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="541dp" />
+        <Button
+            android:id="@+id/admin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Admin"
+            android:layout_margin="20dp"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="541dp" />
+
+
+        <Button
+            android:id="@+id/lecturer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lecturer"
+            android:layout_margin="20dp"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="541dp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
