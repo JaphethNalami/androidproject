@@ -13,6 +13,11 @@
         android:theme="@style/Theme.Examinations"
         tools:targetApi="31">
         <activity
+            android:name=".StudentHomeActivity"
+            android:exported="false"
+            android:label="@string/title_activity_student_home"
+            android:theme="@style/Theme.Examinations.NoActionBar" />
+        <activity
             android:name=".studentpage"
             android:exported="false" />
         <activity
