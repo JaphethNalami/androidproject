@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class register extends AppCompatActivity {
 
-    EditText inputEmail, inputRegistrationNumber, inputPhone, inputPassword, inputConfirmPassword;
+    EditText inputEmail, inputPassword, inputConfirmPassword;
     Button btn_reg;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+";
     ProgressDialog progdiag;
@@ -33,8 +33,6 @@ public class register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         inputEmail = findViewById(R.id.email);
-        inputRegistrationNumber = findViewById(R.id.reg_no);
-        inputPhone = findViewById(R.id.phone_no);
         inputPassword = findViewById(R.id.pass);
         inputConfirmPassword = findViewById(R.id.confirm_pass);
         btn_reg = findViewById(R.id.btn_reg);
@@ -54,20 +52,12 @@ public class register extends AppCompatActivity {
 
     private void PerformAuth() {
         String email = inputEmail.getText().toString();
-        String reg_no = inputRegistrationNumber.getText().toString();
-        String phone_no = inputPhone.getText().toString();
         String pass = inputPassword.getText().toString();
         String confirm_pass = inputConfirmPassword.getText().toString();
 
         if (!isValidEmail(email)) {
             inputEmail.setError("Enter a valid email address");
             return;
-        }
-        else if(reg_no.isEmpty()){
-            inputRegistrationNumber.setError("Enter Registration Number");
-        }
-        else if(phone_no.isEmpty() || phone_no.length()<10){
-            inputPhone.setError("Enter Phone Number Correctly");
         }
         else if(pass.isEmpty() || pass.length()<8){
             inputPassword.setError("Enter Password Correctly");
@@ -102,7 +92,7 @@ public class register extends AppCompatActivity {
         return email.matches(emailPattern);
     }
     private void sendUserToNextActivity(){
-        Intent intent = new Intent(register.this,StudentHomeActivity.class);
+        Intent intent = new Intent(register.this,Dataregister.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }

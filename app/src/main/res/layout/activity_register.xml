@@ -59,28 +59,6 @@
         </EditText>
 
         <EditText
-            android:id="@+id/reg_no"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:ems="10"
-            android:layout_margin="10dp"
-            android:hint="Registration number"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/phone_no"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:ems="10"
-            android:layout_margin="10dp"
-            android:hint="Phone number"
-            android:inputType="number">
-
-        </EditText>
-
-        <EditText
             android:id="@+id/pass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

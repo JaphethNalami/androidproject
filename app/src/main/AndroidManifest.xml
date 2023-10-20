@@ -18,7 +18,7 @@
             android:label="@string/title_activity_student_home"
             android:theme="@style/Theme.Examinations.NoActionBar" />
         <activity
-            android:name=".studentpage"
+            android:name=".Dataregister"
             android:exported="false" />
         <activity
             android:name=".register"
