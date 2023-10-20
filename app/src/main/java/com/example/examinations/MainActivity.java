@@ -18,6 +18,12 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(View-> {
             Intent intent=new Intent(MainActivity.this, login.class);
             startActivity(intent);
-        });
+        }
+);
+        button=findViewById(R.id.lecturer);
+        button.setOnClickListener(View-> {
+            Intent intent=new Intent(MainActivity.this, leclogin.class);
+            startActivity(intent);
+                });
     }
 }

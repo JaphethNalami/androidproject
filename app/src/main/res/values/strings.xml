@@ -7,8 +7,21 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="myteaching">MyTeaching</string>
+    <string name="portable_working_desk">Portable working desk</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">forgot password?</string>
+    <string name="email">Email</string>
+    <string name="portable_academic_office">Portable academic office</string>
+    <string name="remember_me">Remember me</string>
+    <string name="password">password</string>
+    <string name="connecting_teacher_and_student">connecting teacher and student</string>
+    <string name="user_name">user name</string>
+    <string name="dont_have_an_account_register_here">Dont have an account? Register here</string>
+    <string name="my_learning">My Learning</string>
+    <string name="an_office_away_from_the_office">An Office Away from the office</string>
+    <string name="don_t_have_an_account_contact_admin">DON\'T HAVE AN ACCOUNT? CONTACT ADMIN</string>
 </resources>
