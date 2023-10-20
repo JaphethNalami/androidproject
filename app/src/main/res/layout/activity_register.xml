@@ -87,6 +87,7 @@
             android:text="Register"
             android:layout_margin="20dp"
             tools:layout_editor_absoluteX="20dp"
-            tools:layout_editor_absoluteY="541dp" />
+            tools:layout_editor_absoluteY="541dp"
+            android:background="@color/red"/>
     </LinearLayout>
 </LinearLayout>
