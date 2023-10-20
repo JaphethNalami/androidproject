@@ -24,4 +24,7 @@
     <string name="my_learning">My Learning</string>
     <string name="an_office_away_from_the_office">An Office Away from the office</string>
     <string name="don_t_have_an_account_contact_admin">DON\'T HAVE AN ACCOUNT? CONTACT ADMIN</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="welcome_to_the_world_of_learning">Welcome to the world of learning</string>
+    <string name="register">Register</string>
 </resources>
