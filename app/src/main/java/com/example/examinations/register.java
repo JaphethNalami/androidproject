@@ -92,7 +92,8 @@ public class register extends AppCompatActivity {
         return email.matches(emailPattern);
     }
     private void sendUserToNextActivity(){
-        Intent intent = new Intent(register.this,Dataregister.class);
+        Intent intent = new Intent(register.this,StudentDetails.class);
+        intent.putExtra("email", inputEmail.getText().toString());
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }

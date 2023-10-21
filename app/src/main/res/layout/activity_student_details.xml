@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Dataregister"
+    tools:context=".StudentDetails"
     android:layout_marginTop="20dp">
 
     <LinearLayout
@@ -63,12 +63,12 @@
         </EditText>
 
         <Button
-        android:id="@+id/btn_datareg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        android:background="@color/red"
-        android:layout_marginTop="40dp">
+            android:id="@+id/btn_datareg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:background="@color/red"
+            android:layout_marginTop="40dp">
 
         </Button>
     </LinearLayout>

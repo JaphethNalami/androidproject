@@ -43,7 +43,6 @@
             android:layout_weight="1"
             android:background="@drawable/circle"
             android:padding="1dp"
-
             android:src="@drawable/account">
 
         </ImageView>
