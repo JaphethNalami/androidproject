@@ -63,7 +63,7 @@
                 android:src="@drawable/mail">
             </ImageView>
             <EditText
-                android:id="@+id/lec_username"
+                android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="49dp"
                 android:layout_marginStart="0dp"
@@ -71,7 +71,7 @@
                 android:textStyle="italic"
                 android:layout_marginEnd="40dp"
                 android:layout_marginBottom="30dp"
-                android:hint="@string/user_name"
+                android:hint="@string/email"
                 android:textAlignment="center"
                 android:inputType="text"
                 android:layout_weight="1"
@@ -93,7 +93,7 @@
                 android:src="@drawable/password">
             </ImageView>
             <EditText
-                android:id="@+id/lec_pass"
+                android:id="@+id/pass"
                 android:layout_width="match_parent"
                 android:layout_height="49dp"
                 android:layout_marginStart="0dp"
