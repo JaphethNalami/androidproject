@@ -25,5 +25,10 @@ public class MainActivity extends AppCompatActivity {
             Intent intent=new Intent(MainActivity.this, leclogin.class);
             startActivity(intent);
                 });
+        button=findViewById(R.id.admin);
+        button.setOnClickListener(View-> {
+            Intent intent=new Intent(MainActivity.this, admin.class);
+            startActivity(intent);
+        });
     }
 }

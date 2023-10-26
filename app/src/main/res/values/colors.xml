@@ -14,4 +14,15 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="aqua">#00FFFF</color>
+    <color name="darkblue">#00008B</color>
+    <color name="darkcyan">#008B8B</color>
+    <color name="darkgrey">#A9A9A9</color>
+    <color name="darkmagenta">#8B008B</color>
+    <color name="darkorange">#FF8C00</color>
+    <color name="darkred">#8B0000</color>
+    <color name="lightgreen">#90EE90</color>
+    <color name="lightgrey">#D3D3D3</color>
+    <color name="darkbluesolid">#0B0E19</color>
+    <color name="darkbluetrans">#384368</color>
 </resources>

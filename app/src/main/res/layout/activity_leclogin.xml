@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bg3"
     tools:context=".leclogin">
 
     <TextView
@@ -25,27 +24,24 @@
         >
     </TextView>
 
+    <ImageView
+        android:layout_width="276dp"
+        android:layout_height="176dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="0dp"
+
+        android:layout_weight="1"
+        android:padding="1dp"
+        android:src="@drawable/teacher">
+
+    </ImageView>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="128dp"
-            android:layout_height="128dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="30dp"
-            android:layout_weight="1"
-            android:background="@drawable/circle"
-            android:padding="1dp"
-            android:src="@drawable/account">
-
-        </ImageView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -150,9 +146,11 @@
         android:layout_height="wrap_content"
         android:text="@string/an_office_away_from_the_office"
         android:textAlignment="center"
+        android:textSize="20sp"
         android:textStyle="italic"
-        android:layout_gravity="bottom|center"
-        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="10dp"
         android:textColor="@color/red">
 
     </TextView>

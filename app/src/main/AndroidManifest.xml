@@ -18,6 +18,9 @@
             android:name=".Courses"
             android:exported="false" />
         <activity
+            android:name=".admin"
+            android:exported="false" />
+        <activity
             android:name=".StudentDetails"
             android:exported="false" />
         <activity

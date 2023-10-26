@@ -4,39 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login"
     android:layout_gravity="center"
+
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@drawable/bg7"
-    >
+    tools:context=".login">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/my_learning"
-        android:layout_marginTop="30dp"
-        android:textAlignment="center"
         android:layout_gravity="center"
-        android:textSize="40sp"
-        />
+        android:layout_marginTop="30dp"
+        android:text="@string/my_learning"
+        android:textAlignment="center"
+        android:textSize="40sp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textSize="15sp"
-        android:text="@string/portable_academic_office">
-
+        android:text="@string/portable_academic_office"
+        android:textSize="15sp">
     </TextView>
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="221dp"
+        android:layout_height="90dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/student"
+        tools:ignore="ContentDescription"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="214dp" />
     <LinearLayout
         android:id="@+id/container"
         android:layout_width="375dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:background="#37876969"
+        android:layout_margin="0dp"
         android:orientation="vertical"
         android:padding="20dp"
         android:visibility="visible"
@@ -44,44 +51,33 @@
         tools:layout_editor_absoluteX="89dp"
         tools:layout_editor_absoluteY="238dp">
 
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="90dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="0dp"
-            app:srcCompat="@drawable/account"
-            tools:ignore="ContentDescription"
-            tools:layout_editor_absoluteX="47dp"
-            tools:layout_editor_absoluteY="214dp" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:layout_gravity="center"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_width="87dp"
+                android:layout_width="49dp"
                 android:layout_height="71dp"
                 android:layout_gravity="center"
                 app:srcCompat="@drawable/mail"
-                tools:layout_editor_absoluteX="129dp"
-                tools:layout_editor_absoluteY="341dp" />
+                android:layout_weight="1"
+                 />
 
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="match_parent"
-            android:layout_height="49dp"
-            android:layout_gravity="center"
-            android:ems="10"
-            android:textStyle="italic"
-            android:hint="@string/email"
-            android:textAlignment="center"
-            android:inputType="textEmailSubject"
-            android:background="@drawable/button"
-             />
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button"
+                android:ems="10"
+                android:hint="@string/email"
+                android:inputType="textEmailSubject"
+                android:textAlignment="center"
+                android:textStyle="italic" />
 
         </LinearLayout>
 
@@ -89,29 +85,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_gravity="center"
             >
 
             <ImageView
-                android:layout_width="87dp"
-                android:layout_height="71dp"
+                android:layout_width="55dp"
+                android:layout_height="51dp"
                 android:layout_gravity="center"
                 app:srcCompat="@drawable/password"
                 tools:layout_editor_absoluteX="129dp"
                 tools:layout_editor_absoluteY="341dp" />
 
-        <EditText
-            android:id="@+id/pass"
-            android:layout_width="match_parent"
-            android:layout_height="49dp"
-            android:textAlignment="center"
-            android:layout_gravity="center"
-            android:ems="10"
-            android:hint="Password"
-            android:background="@drawable/button"
-            android:textStyle="italic"
-            android:inputType="textPassword"
-            tools:layout_editor_absoluteX="256dp"
-            tools:layout_editor_absoluteY="362dp" />
+            <EditText
+                android:id="@+id/pass"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textAlignment="center"
+                android:textStyle="italic"
+                tools:layout_editor_absoluteX="256dp"
+                tools:layout_editor_absoluteY="362dp" />
 
         </LinearLayout>
 
@@ -128,12 +125,12 @@
             android:id="@+id/btn_login"
             android:layout_width="144dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_gravity="center"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/button"
-            android:text="@string/login"
             android:backgroundTint="@color/blue"
+            android:text="@string/login"
             tools:layout_editor_absoluteX="20dp"
             tools:layout_editor_absoluteY="541dp" />
 
@@ -148,12 +145,13 @@
             tools:layout_editor_absoluteX="170dp"
             tools:layout_editor_absoluteY="682dp" />
     </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/connecting_teacher_and_student"
-        android:layout_marginTop="50dp"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:layout_marginTop="190dp"
+        android:text="@string/connecting_teacher_and_student">
 
     </TextView>
 
