@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Examinations"
         tools:targetApi="31">
         <activity
+            android:name=".Courses"
+            android:exported="false" />
+        <activity
             android:name=".StudentDetails"
             android:exported="false" />
         <activity
