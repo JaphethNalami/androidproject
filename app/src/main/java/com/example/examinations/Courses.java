@@ -2,8 +2,10 @@ package com.example.examinations;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,6 +13,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.examinations.ui.courses.CoursesViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +33,7 @@ public class Courses extends AppCompatActivity {
     FirebaseUser mUser = mAuth.getCurrentUser();
     List<String> selectedCourses = new ArrayList<>();
     int selectedCount = 0;
+    private CoursesViewModel coursesViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +42,13 @@ public class Courses extends AppCompatActivity {
 
         SearchView searchView;
 
-
         listView = findViewById(R.id.listview);
         searchView = findViewById(R.id.search_bar);
         btn_submit = findViewById(R.id.submit_courses);
 
         rootdatabaseref = FirebaseDatabase.getInstance().getReference();
+
+        coursesViewModel = new ViewModelProvider(this).get(CoursesViewModel.class);
 
         searchView.clearFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -140,7 +145,7 @@ public class Courses extends AppCompatActivity {
         list.add("Finance 401");
         list.add("Medical Ethics 401");
 
-        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, list);
+        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
         listView.setAdapter(arrayAdapter);
 
         btn_submit.setOnClickListener(v -> {
@@ -172,6 +177,7 @@ public class Courses extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedCourse = list.get(position);
+                Log.d("Courses", "onItemClick: Clicked");
 
                 if (selectedCourses.contains(selectedCourse)) {
                     selectedCourses.remove(selectedCourse);
@@ -179,6 +185,7 @@ public class Courses extends AppCompatActivity {
                 } else if (selectedCount < 5) {
                     selectedCourses.add(selectedCourse);
                     selectedCount++;
+                    Toast.makeText(Courses.this, "Course selected. Total courses: " + selectedCount, Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(Courses.this, "You can only select 5 courses.", Toast.LENGTH_SHORT).show();
                 }
@@ -194,6 +201,10 @@ public class Courses extends AppCompatActivity {
         for (String course : courses) {
             coursesRef.child(course).setValue(true);
         }
+
+        // Update ViewModel with selected courses
+        coursesViewModel.setSelectedCourses(courses);
+
 
         Toast.makeText(Courses.this, "Courses saved successfully!", Toast.LENGTH_SHORT).show();
     }

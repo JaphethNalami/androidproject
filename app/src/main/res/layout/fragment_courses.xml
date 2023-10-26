@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.courses.CoursesFragment">
 
+    <!-- Existing TextView for course information -->
     <TextView
         android:id="@+id/text_courses"
         android:layout_width="match_parent"
@@ -16,14 +16,69 @@
 
     </TextView>
 
+    <!-- New TextViews for displaying registered courses -->
+    <TextView
+        android:id="@+id/course1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:text=""
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/course2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_below="@id/course1"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/course3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_below="@id/course2"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/course4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_below="@id/course3"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/course5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_below="@id/course4"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="" />
+
     <Button
         android:id="@+id/btn_courses"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_below="@+id/text_courses"
         android:textSize="20sp"
         android:text="@string/register"
-        android:background="@color/red">
+        android:background="@color/red"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="16dp" />
 
-    </Button>
 </RelativeLayout>
