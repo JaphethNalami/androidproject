@@ -15,6 +15,15 @@
         android:theme="@style/Theme.Examinations"
         tools:targetApi="31">
         <activity
+            android:name=".lecregister"
+            android:exported="false" />
+        <activity
+            android:name=".markupdate"
+            android:exported="false" />
+        <activity
+            android:name=".adminhomepage"
+            android:exported="false" />
+        <activity
             android:name=".Courses"
             android:exported="false" />
         <activity

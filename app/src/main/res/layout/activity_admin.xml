@@ -7,6 +7,16 @@
     tools:context=".admin"
     android:orientation="vertical">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
     <TextView
         android:text="Admin Panel"
         android:layout_width="match_parent"
@@ -50,27 +60,24 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="140dp"
+            android:layout_width="51dp"
             android:layout_height="49dp"
             android:src="@drawable/mail"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_weight="1"
+
+
             ></ImageView>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="49dp"
             android:id="@+id/admin_username"
-            android:background="@drawable/button"
-            android:layout_marginStart="0dp"
+            android:background="@drawable/box"
+            android:layout_marginStart="7dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
             android:hint="Username"
             android:textAlignment="center"
             android:inputType="textEmailSubject"
-            android:layout_weight="1"
             android:textStyle="italic"
 
             ></EditText>
@@ -78,30 +85,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="140dp"
-            android:layout_height="49dp"
-            android:src="@drawable/lock"
+            android:layout_width="51dp"
+            android:layout_height="53dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:layout_weight="1"
-            ></ImageView>
+            android:src="@drawable/lock"></ImageView>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="49dp"
             android:id="@+id/admin_password"
-            android:background="@drawable/button"
-            android:layout_marginStart="0dp"
+            android:background="@drawable/box"
+            android:layout_marginStart="7dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:hint="Password"
             android:textAlignment="center"
             android:inputType="textPassword"
-            android:layout_weight="1"
             android:textStyle="italic"
 
             ></EditText>
@@ -115,7 +120,6 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:background="@drawable/button"
         android:text="Login"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -128,11 +132,13 @@
         android:text="Forgot Password?"
         android:textSize="17sp"
         android:layout_gravity="center"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="4dp"
         android:layout_marginBottom="20dp"
         android:textStyle="italic"
         android:textColor="@color/black"
         android:id="@+id/admin_forgot"
         android:background="@color/material_on_surface_stroke"
         ></Button>
+</LinearLayout>
+    </ScrollView>
 </LinearLayout>

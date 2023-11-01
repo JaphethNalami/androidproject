@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".markupdate"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mark Update"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:ems="10"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="40dp"
+        android:textColor="@color/grey"
+        android:textSize="40sp"></TextView>
+
+    <EditText
+        android:id="@+id/studentid"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:textAlignment="center"
+        android:background="@drawable/box"
+        android:hint="Enter Student ID"
+        android:inputType="text"></EditText>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/box"
+        android:hint="Enter Subject Name"
+        android:textAlignment="center"
+        android:inputType="text"
+        android:id="@+id/subjectname"
+        ></EditText>
+    <EditText
+android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:hint="Enter Subject ID"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/box"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:id="@+id/subjectid"
+        ></EditText>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:hint="Enter Marks"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:textAlignment="center"
+        android:background="@drawable/box"
+        android:inputType="text"
+        android:id="@+id/marks"
+        ></EditText>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/update"
+        ></Button>
+
+</LinearLayout>

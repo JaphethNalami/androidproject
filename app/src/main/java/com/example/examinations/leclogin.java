@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class leclogin extends AppCompatActivity {
 
     EditText inputEmail, inputPassword;
-    Button btn_login, button;
+    Button btn_login,lec;
     ProgressDialog progdiag;
 
     FirebaseAuth mAuth;
@@ -38,6 +38,14 @@ public class leclogin extends AppCompatActivity {
         progdiag = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
+        lec = findViewById(R.id.lec_signup);
+        lec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(leclogin.this, lecregister.class);
+                startActivity(intent);
+            }
+        });
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,13 +54,6 @@ public class leclogin extends AppCompatActivity {
             }
         });
 
-        button = findViewById(R.id.btnlink);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gotoUrl("https://mail.google.com/mail/?view=cm&source=mailto&to=nalamijapheth@gmail.com&body=Type%20Email%20and%20password%20Below&su=LECTURER%20ACCOUNT%20REGISTRATION%20EMAIL");
-            }
-        });
     }
 
     private void Performlogin() {

@@ -6,6 +6,16 @@
     android:orientation="vertical"
     tools:context=".leclogin">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -19,19 +29,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/portable_working_desk"
-        android:textSize="20sp"
         android:gravity="center"
         >
     </TextView>
 
     <ImageView
-        android:layout_width="276dp"
+        android:layout_width="342dp"
         android:layout_height="176dp"
         android:layout_gravity="center"
-        android:layout_marginTop="0dp"
-
-        android:layout_weight="1"
-        android:padding="1dp"
+        android:layout_marginTop="40dp"
+        android:padding="4dp"
         android:src="@drawable/teacher">
 
     </ImageView>
@@ -49,58 +56,49 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="140dp"
-                android:layout_height="49dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="13dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginEnd="0dp"
-                android:layout_marginBottom="20dp"
-                android:layout_weight="1"
-                android:src="@drawable/mail">
-            </ImageView>
+                android:src="@drawable/mail"></ImageView>
+
             <EditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="49dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="7dp"
                 android:textStyle="italic"
-                android:layout_marginEnd="40dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginEnd="20dp"
                 android:hint="@string/email"
                 android:textAlignment="center"
-                android:inputType="text"
+                android:inputType="textEmailAddress"
                 android:layout_weight="1"
-                android:background="@drawable/button">
+                android:background="@drawable/box">
             </EditText>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
             <ImageView
-                android:layout_width="60dp"
-                android:layout_height="49dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="0dp"
-                android:layout_marginBottom="0dp"
+                android:layout_width="55dp"
+                android:layout_height="51dp"
+                android:layout_marginStart="20dp"
                 android:src="@drawable/password">
             </ImageView>
             <EditText
                 android:id="@+id/pass"
                 android:layout_width="match_parent"
                 android:layout_height="49dp"
-                android:layout_marginStart="0dp"
+                android:layout_marginStart="7dp"
                 android:textStyle="italic"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="40dp"
-                android:layout_marginBottom="0dp"
+                android:layout_marginEnd="20dp"
                 android:inputType="textPassword"
                 android:hint="@string/password"
                 android:textAlignment="center"
-                android:background="@drawable/button">
+                android:background="@drawable/box">
             </EditText>
         </LinearLayout>
 
@@ -126,36 +124,35 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/button"
         android:text="@string/login"
         android:textSize="20sp">
 
     </Button>
 
-    <Button
-        android:id="@+id/btnlink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@color/material_on_surface_stroke"
-        android:text="@string/don_t_have_an_account_contact_admin"
-        android:textStyle="italic"></Button>
+        <Button
+            android:id="@+id/lec_signup"
+            android:layout_width="213dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/material_on_surface_stroke"
+            android:text="Don't have an account? Register request one here."
+            android:textStyle="italic"></Button>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/an_office_away_from_the_office"
         android:textAlignment="center"
-        android:textSize="20sp"
-        android:textStyle="italic"
+          android:textSize="15sp"
+        android:textColor="@color/black"
         android:layout_gravity="center"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="125dp"
         android:layout_marginBottom="10dp"
-        android:textColor="@color/red">
+        >
 
     </TextView>
 
     </LinearLayout>
-
-
+    </LinearLayout>
+    </ScrollView>
 </LinearLayout>
