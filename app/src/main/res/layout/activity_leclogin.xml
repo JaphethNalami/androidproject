@@ -135,7 +135,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@color/material_on_surface_stroke"
-            android:text="Don't have an account? Register request one here."
+            android:text="Don't have an account? request one here."
             android:textStyle="italic"></Button>
 
     <TextView
