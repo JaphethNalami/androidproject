@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="5dp"
+    tools:context=".admin_lecregister">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lecture Register"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:hint="Enter Lecture ID"
+            android:id="@+id/lec_id"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/box"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:inputType="textWebEmailAddress"
+            android:hint="Enter Lecture Email"
+            android:id="@+id/lec_email"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/box"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:inputType="text"
+            android:hint="Enter Lecture Name"
+            android:id="@+id/lec_name"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/box"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:inputType="textVisiblePassword"
+            android:hint="Enter Lecture Password"
+            android:id="@+id/lec_password"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/box"/>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:hint="Enter Lecture Phone"
+            android:id="@+id/lec_phone"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/box"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:hint="Enter Lecture National ID"
+            android:id="@+id/lec_national_id"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/box"/>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:inputType="textVisiblePassword"
+            android:hint="Enter Lecture Confirm Password"
+            android:id="@+id/lec_confirm_password"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/box"/>
+
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Register"
+            android:id="@+id/lec_register"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/box"
+            android:backgroundTint="@color/red"/>
+
+    </LinearLayout>
+</LinearLayout>

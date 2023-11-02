@@ -7,20 +7,23 @@
     tools:context=".adminhomepage"
     android:orientation="vertical"
     >
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/red">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Admin Dashboard"
-            android:textStyle="bold"
-            android:ems="10"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:text="Admin Dashboard"
             android:textColor="@color/grey"
-            android:textSize="20sp"></TextView>
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -111,6 +114,7 @@
                 android:layout_weight="1"
                 ></ImageView>
             <Button
+                android:id="@+id/btn_lecreg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Lecturer deregistration"

@@ -100,6 +100,7 @@
                 android:inputType="phone" />
 
     <Button
+        android:id="@+id/lec_reg"
         android:layout_width="196dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

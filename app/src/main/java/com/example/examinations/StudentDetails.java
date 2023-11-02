@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -44,6 +45,16 @@ public class StudentDetails extends AppCompatActivity {
                 String nid = inputNationalID.getText().toString();
                 String dob = inputDateofBirth.getText().toString();
                 String phone_no = inputPhone.getText().toString();
+
+                // Add your conditions here
+                if (reg_no.isEmpty() || nid.isEmpty() || dob.isEmpty() || phone_no.isEmpty()) {
+                    Toast.makeText(StudentDetails.this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
+                } else if (phone_no.length() < 10) {
+                    Toast.makeText(StudentDetails.this, "Phone number must be 10 characters", Toast.LENGTH_SHORT).show();
+                } else if (!email.matches("[a-zA-Z0-9._-]+@[a-z]+")) {
+                    Toast.makeText(StudentDetails.this, "Invalid email address", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 if (mUser != null) {
                     // Assuming you have a node in your database where you want to save this data
