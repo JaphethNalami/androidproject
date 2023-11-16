@@ -49,8 +49,10 @@ public class StudentDetails extends AppCompatActivity {
                 // Add your conditions here
                 if (reg_no.isEmpty() || nid.isEmpty() || dob.isEmpty() || phone_no.isEmpty()) {
                     Toast.makeText(StudentDetails.this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
+                    return;
                 } else if (phone_no.length() < 10) {
                     Toast.makeText(StudentDetails.this, "Phone number must be 10 characters", Toast.LENGTH_SHORT).show();
+                    return;
                 } else if (!email.matches("[a-zA-Z0-9._-]+@[a-z]+")) {
                     Toast.makeText(StudentDetails.this, "Invalid email address", Toast.LENGTH_SHORT).show();
                     return;
