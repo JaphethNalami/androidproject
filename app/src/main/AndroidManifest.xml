@@ -15,7 +15,10 @@
         android:theme="@style/Theme.Examinations"
         tools:targetApi="31">
         <activity
-            android:name=".Lec_Marks_Enter"
+            android:name=".special_examinations"
+            android:exported="false" />
+        <activity
+            android:name=".mark_input"
             android:exported="false" />
         <activity
             android:name=".admin_lecregister"

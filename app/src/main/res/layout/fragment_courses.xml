@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.courses.CoursesFragment">
 
+
     <!-- Existing TextView for course information -->
     <TextView
         android:id="@+id/text_courses"
@@ -17,55 +18,121 @@
     </TextView>
 
     <!-- New TextViews for displaying registered courses -->
-    <TextView
-        android:id="@+id/course1"
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:layout_below="@id/text_courses"
         android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
         android:layout_centerHorizontal="true"
-        android:text=""
-        tools:ignore="HardcodedText" />
+        android:layout_marginBottom="20dp">
 
-    <TextView
-        android:id="@+id/course2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_below="@id/course1"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
-        android:text="" />
+        <TableRow>
+            <TextView
+                android:id="@+id/registered_courses"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textColor="@color/blue"
+                android:layout_marginStart="10dp"
+                android:text="REGISTERED COURSES" />
+        </TableRow>
 
-    <TextView
-        android:id="@+id/course3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_below="@id/course2"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
-        android:text="" />
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:textStyle="bold"
+                android:textColor="@color/blue"
+                android:text="Semester 1"
+                android:paddingStart="18dp"
+                android:textSize="20sp" />
+        </TableRow>
+    <TableRow>
+        <TextView
+            android:id="@+id/course1"
+            android:layout_width="265dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/cousebox"
+            android:text=""
+            android:paddingStart="10dp"
+            android:paddingTop="11dp"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
+    </TableRow>
+        <TableRow>
 
-    <TextView
-        android:id="@+id/course4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_below="@id/course3"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
-        android:text="" />
+            <TextView
+                android:id="@+id/course2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/course1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/cousebox"
+                android:text=""
+                android:paddingStart="10dp"
+                android:paddingTop="11dp"
+                android:textSize="16sp" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/course3"
+            android:layout_width="332dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/course2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/cousebox"
+            android:text=""
+            android:paddingStart="10dp"
+            android:paddingTop="11dp"
+            android:textSize="16sp" />
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:id="@+id/course4"
+            android:layout_width="323dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/course3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/cousebox"
+            android:text=""
+            android:paddingStart="10dp"
+            android:paddingTop="11dp"
+            android:textSize="16sp" />
+    </TableRow>
+    <TableRow>
 
     <TextView
         android:id="@+id/course5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:textSize="16sp"
+        android:background="@drawable/cousebox"
+        android:layout_marginStart="18dp"
         android:layout_below="@id/course4"
+        android:paddingStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:paddingTop="11dp"
         android:text="" />
+    </TableRow>
+    </TableLayout>
 
     <Button
         android:id="@+id/btn_courses"

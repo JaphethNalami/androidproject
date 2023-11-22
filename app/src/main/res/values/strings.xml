@@ -28,4 +28,6 @@
     <string name="welcome_to_the_world_of_learning">Welcome to the world of learning</string>
     <string name="register">Register</string>
     <string name="logout">Logout</string>
+    <string name="student_account_details">STUDENT ACCOUNT DETAILS</string>
+    <string name="name">Name</string>
 </resources>
