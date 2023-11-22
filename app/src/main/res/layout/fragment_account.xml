@@ -7,57 +7,140 @@
     tools:context=".ui.account.AccountFragment"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/text_full_name"
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="20sp" >
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp">
 
-    </TextView>
+        <TableRow>
+            <TextView
+                android:id="@+id/registered_courses"
+                android:layout_width="329dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:text="@string/student_account_details"
+                android:textColor="@color/blue"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </TableRow>
 
-    <TextView
-        android:id="@+id/text_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="20sp">
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="@string/name"
+                android:textColor="@color/blue"
+                android:textStyle="bold"
+                android:paddingStart="10dp"
+                android:textSize="20sp" />
+        </TableRow>
 
-    </TextView>
+    <TableRow>
+        <TextView
+            android:id="@+id/text_full_name"
+            android:layout_width="360dp"
+            android:layout_height="42dp"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:background="@drawable/cousebox"
+            android:textSize="20sp" />
+    </TableRow>
 
-    <TextView
-        android:id="@+id/text_reg_no"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="20sp">
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:textStyle="bold"
+                android:textColor="@color/blue"
+                android:text="Reg_No"
+                android:paddingStart="10dp"
+                android:textSize="20sp" />
+        </TableRow>
 
-    </TextView>
+    <TableRow>
+        <TextView
+            android:id="@+id/text_reg_no"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:paddingTop="5dp"
+            android:paddingStart="10dp"
+            android:background="@drawable/cousebox"
+            android:textSize="20sp" />
+    </TableRow>
 
-    <TextView
-        android:id="@+id/text_nid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="20sp">
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:textColor="@color/blue"
+                android:textStyle="bold"
+                android:text="Id Number"
+                android:paddingStart="10dp"
+                android:textSize="20sp" />
+        </TableRow>
 
-    </TextView>
+    <TableRow>
+        <TextView
+            android:id="@+id/text_nid"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:background="@drawable/cousebox"
+            android:textSize="20sp" />
+    </TableRow>
 
-    <TextView
-        android:id="@+id/text_dob"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="20sp">
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="Date of Birth"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:paddingStart="10dp"
+            android:textSize="20sp" />
+    </TableRow>
 
-    </TextView>
+    <TableRow>
+        <TextView
+            android:id="@+id/text_dob"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:background="@drawable/cousebox"
+            android:textSize="20sp" />
+    </TableRow>
 
-    <TextView
-        android:id="@+id/text_phone_no"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="20sp">
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="Phone Number"
+                android:textStyle="bold"
+                android:textColor="@color/blue"
+                android:paddingStart="10dp"
+                android:textSize="20sp" />
+        </TableRow>
 
-    </TextView>
+    <TableRow>
+        <TextView
+            android:id="@+id/text_phone_no"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:background="@drawable/cousebox"
+            android:textSize="20sp" />
+    </TableRow>
+    </TableLayout>
 </LinearLayout>

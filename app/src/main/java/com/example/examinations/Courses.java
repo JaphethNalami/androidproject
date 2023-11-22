@@ -65,17 +65,16 @@ public class Courses extends AppCompatActivity {
         });
 
         list = new ArrayList<>();
-        list.add("Basic Statistics 136");
-        list.add("Calculus I 108");
-        list.add("Calculus II 109");
-        list.add("Chemistry for Non-Majors 100");
-        list.add("Communication Skills 154");
-        list.add("English Literature 101");
-        list.add("General Biology 131");
+        list.add("Basic Statistic136");
+        list.add("Calculus 108");
+        list.add("Chemistry for Non-Major100");
+        list.add("Communication Skill154");
+        list.add("English Literatur101");
+        list.add("General Biolog131");
         list.add("History 123");
         list.add("Introduction to Anthropology 149");
         list.add("Introduction to Art History 144");
-        list.add("Introduction to Business 111");
+        list.add("Introduction to Business  111");
         list.add("Introduction to Computer Science 106");
         list.add("Introduction to Environmental Science 139");
         list.add("Introduction to Film Studies 141");

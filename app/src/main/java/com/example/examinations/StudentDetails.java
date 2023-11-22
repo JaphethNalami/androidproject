@@ -53,9 +53,6 @@ public class StudentDetails extends AppCompatActivity {
                 } else if (phone_no.length() < 10) {
                     Toast.makeText(StudentDetails.this, "Phone number must be 10 characters", Toast.LENGTH_SHORT).show();
                     return;
-                } else if (!email.matches("[a-zA-Z0-9._-]+@[a-z]+")) {
-                    Toast.makeText(StudentDetails.this, "Invalid email address", Toast.LENGTH_SHORT).show();
-                    return;
                 }
 
                 if (mUser != null) {
