@@ -98,6 +98,17 @@
                 android:layout_marginTop="20dp"
                 android:hint="Enter Lecture Phone"
                 android:inputType="phone" />
+            <EditText
+                android:id="@+id/edi_lec_unit"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/box"
+                android:layout_marginTop="20dp"
+                android:textAlignment="center"
+                android:hint="Unit Taught"
+                android:inputType="text" />
 
     <Button
         android:id="@+id/lec_reg"

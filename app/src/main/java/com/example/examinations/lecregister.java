@@ -17,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class lecregister extends AppCompatActivity {
 
-    EditText lecname, lecemail, lecpass, lecphone;
+    EditText lecname, lecemail, lecpass, lecphone,unit;
     Button btnreg;
     private DatabaseReference rootdatabaseref;
 
@@ -30,6 +30,7 @@ public class lecregister extends AppCompatActivity {
         lecemail = findViewById(R.id.edt_lec_email);
         lecpass = findViewById(R.id.edt_lec_password);
         lecphone = findViewById(R.id.edt_lec_phone);
+        unit = findViewById(R.id.edi_lec_unit);
         btnreg = findViewById(R.id.lec_reg);
 
         rootdatabaseref = FirebaseDatabase.getInstance().getReference();
@@ -41,13 +42,17 @@ public class lecregister extends AppCompatActivity {
                 String lec_email = lecemail.getText().toString();
                 String lec_pass = lecpass.getText().toString();
                 String lec_phone = lecphone.getText().toString();
+                String lec_unit = unit.getText().toString();
 
                 DatabaseReference userRef = rootdatabaseref.child("Lecturers").push();
 
                 userRef.child("fullname").setValue(lec_name);
                 userRef.child("email").setValue(lec_email);
                 userRef.child("password").setValue(lec_pass);
+                userRef.child("subject").setValue(lec_unit);
                 userRef.child("phone_no").setValue(lec_phone)
+
+
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
