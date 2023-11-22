@@ -118,7 +118,7 @@
     </Button>
 
     <Button
-        android:id="@+id/leclogin"
+        android:id="@+id/Lec_Marks_Enter"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

@@ -1,8 +1,5 @@
 package com.example.examinations;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -11,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -34,7 +34,7 @@ public class leclogin extends AppCompatActivity {
 
         inputEmail = findViewById(R.id.email);
         inputPassword = findViewById(R.id.pass);
-        btn_login = findViewById(R.id.leclogin);
+        btn_login = findViewById(R.id.Lec_Marks_Enter);
         progdiag = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
@@ -67,6 +67,8 @@ public class leclogin extends AppCompatActivity {
             inputPassword.setError("Enter Password Correctly");
             return; // Added return statement
         }
+        Intent intent = new Intent(leclogin.this, Lec_Marks_Enter.class);
+        startActivity(intent);
 
         progdiag.setMessage("Login in Progress...");
         progdiag.setTitle("Login");
@@ -94,7 +96,7 @@ public class leclogin extends AppCompatActivity {
     }
 
     private void sendUserToNextActivity() {
-        Intent intent = new Intent(leclogin.this, StudentHomeActivity.class);
+        Intent intent = new Intent(leclogin.this, Lec_Marks_Enter.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
