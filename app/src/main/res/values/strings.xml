@@ -9,6 +9,7 @@
     <string name="action_logout">Logout</string>
     <string name="menu_home">Dashboard</string>
     <string name="menu_courses">Courses</string>
+    <string name="menu_special">Special</string>
     <string name="menu_account">Account</string>
     <string name="myteaching">MyTeaching</string>
     <string name="portable_working_desk">Portable working desk</string>
