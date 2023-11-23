@@ -30,6 +30,7 @@
             android:hint="Unit taught"
             android:id="@+id/lec_id"
             android:layout_marginTop="10dp"
+            android:inputType="text"
             android:background="@drawable/box"/>
 
         <EditText

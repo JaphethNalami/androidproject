@@ -124,6 +124,7 @@ public class admin_lecregister extends AppCompatActivity {
         }
         else if(pass.isEmpty() || pass.length()<8){
             lecpass.setError("Enter Password Correctly");
+
         }
         else if(!pass.equals(confirm_pass)){
             lecconfirm_pass.setError("Passwords do not match");
