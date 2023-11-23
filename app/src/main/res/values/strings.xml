@@ -31,6 +31,25 @@
     <string name="logout">Logout</string>
     <string name="student_account_details">STUDENT ACCOUNT DETAILS</string>
     <string name="name">Name</string>
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="select_assessment_type">Select Assessment Type</string>
+    <string name="select_unit">Select Unit</string>
+    <string-array name="units">
+        <item>Calculus</item>
+        <item>Statistics</item>
+        <item>Database Systems</item>
+        <item>Compiler Construction</item>
+        <item>Mobile Programming</item>
+        <item>Internet Programming</item>
+        <item>Software Engineering</item>
+        <item>Machine Learning</item>
+        <item>Networking</item>
+        <item>Digital Logic</item>
+    </string-array>
+    <string-array name="assessment_types">
+        <item>Assignment 1</item>
+        <item>Assignment 2</item>
+        <item>Cat 1</item>
+        <item>Cat 2</item>
+        <item>Exam</item>
+    </string-array>
 </resources>

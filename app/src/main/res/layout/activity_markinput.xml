@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".markinput">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mark Input"
+        android:textAlignment="center"
+        android:textSize="22sp"
+        android:layout_marginTop="21dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:text="Enter Registration Number"
+        android:layout_gravity="center"
+        android:textSize="16sp"
+        android:layout_marginTop="21dp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/editTextReg_no"
+        android:layout_width="340dp"
+        android:layout_height="51dp"
+        android:inputType="text"
+        android:layout_gravity="center"
+        android:paddingStart="12dp"
+        android:background="@drawable/box"
+        android:hint="Reg_no"
+        />
+
+    <TextView
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:text="Select Unit"
+        android:layout_gravity="center"
+        android:textSize="16sp"
+        android:layout_marginTop="21dp"
+        android:textStyle="bold"/>
+    <Spinner
+        android:id="@+id/spinnerUnits"
+        android:layout_width="340dp"
+        android:layout_height="53dp"
+        android:background="@drawable/box"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:text="Select Assessment"
+        android:layout_gravity="center"
+        android:textSize="16sp"
+        android:layout_marginTop="21dp"
+        android:textStyle="bold"/>
+
+    <Spinner
+        android:id="@+id/spinnerAssessmentType"
+        android:layout_width="340dp"
+        android:layout_height="51dp"
+        android:layout_gravity="center"
+        android:background="@drawable/box"
+        />
+
+    <TextView
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:text="Enter Marks"
+        android:layout_gravity="center"
+        android:textSize="16sp"
+        android:layout_marginTop="21dp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/editTextMarks"
+        android:layout_width="343dp"
+        android:layout_height="51dp"
+        android:paddingStart="12dp"
+        android:hint="Enter Marks"
+        android:background="@drawable/box"
+        android:layout_gravity="center"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/btnSubmitScores"
+        android:layout_width="278dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="68dp"
+        android:text="Submit Scores" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
