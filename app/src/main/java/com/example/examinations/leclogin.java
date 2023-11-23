@@ -49,8 +49,7 @@ public class leclogin extends AppCompatActivity {
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Performlogin();
+            public void onClick(View v) {Performlogin();
             }
         });
 
@@ -66,28 +65,27 @@ public class leclogin extends AppCompatActivity {
         } else if (pass.isEmpty() || pass.length() < 8) {
             inputPassword.setError("Enter Password Correctly");
             return; // Added return statement
-        }
-        Intent intent = new Intent(leclogin.this, Lec_Marks_Enter.class);
-        startActivity(intent);
+        } else {
 
-        progdiag.setMessage("Login in Progress...");
-        progdiag.setTitle("Login");
-        progdiag.setCanceledOnTouchOutside(false);
-        progdiag.show();
+            progdiag.setMessage("Login in Progress...");
+            progdiag.setTitle("Login");
+            progdiag.setCanceledOnTouchOutside(false);
+            progdiag.show();
 
-        mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    progdiag.dismiss();
-                    sendUserToNextActivity();
-                    Toast.makeText(leclogin.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                } else {
-                    progdiag.dismiss();
-                    Toast.makeText(leclogin.this, "" + task.getException(), Toast.LENGTH_SHORT).show();
+            mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        progdiag.dismiss();
+                        sendUserToNextActivity();
+                        Toast.makeText(leclogin.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                    } else {
+                        progdiag.dismiss();
+                        Toast.makeText(leclogin.this, "Login Failed" + task.getException(), Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
     private boolean isValidEmail(String email) {
@@ -96,7 +94,7 @@ public class leclogin extends AppCompatActivity {
     }
 
     private void sendUserToNextActivity() {
-        Intent intent = new Intent(leclogin.this, Lec_Marks_Enter.class);
+        Intent intent = new Intent(leclogin.this, markinput.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
