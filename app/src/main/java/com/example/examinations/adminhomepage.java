@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class adminhomepage extends AppCompatActivity {
 
-    Button btn_mark_update, btn_lecturer_registration;
+    Button btn_mark_update, btn_lecturer_registration,list,passlist,fail;
 
 
     @Override
@@ -22,16 +22,37 @@ public class adminhomepage extends AppCompatActivity {
 
         btn_lecturer_registration = findViewById(R.id.lecturer_register);
         btn_mark_update = findViewById(R.id.mark_update);
+        list = findViewById(R.id.btn_stuaca);
+        passlist = findViewById(R.id.passlist);
+        fail = findViewById(R.id.btn_fail);
 
-        btn_lecturer_registration.setOnClickListener(v -> {
+
+        /*btn_lecturer_registration.setOnClickListener(v -> {
             Intent intent = new Intent(adminhomepage.this, admin_lecregister.class);
             startActivity(intent);
-        });
+        });*/
 
         btn_mark_update.setOnClickListener(v -> {
             Intent intent = new Intent(adminhomepage.this, markupdate.class);
             startActivity(intent);
         });
+
+        list.setOnClickListener(v -> {
+            Intent intent = new Intent(adminhomepage.this, missing_marks_all.class);
+            startActivity(intent);
+        });
+
+        passlist.setOnClickListener(v -> {
+            Intent intent = new Intent(adminhomepage.this, pass_list.class);
+            startActivity(intent);
+        });
+
+        fail.setOnClickListener(v -> {
+            Intent intent = new Intent(adminhomepage.this, fail_list.class);
+            startActivity(intent);
+        });
+
+
 
     }
 
