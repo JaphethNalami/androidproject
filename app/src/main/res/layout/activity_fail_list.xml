@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fail_list">
+
+    <TextView
+        android:id="@+id/fail_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fail list"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"/>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="0.5dp"
+        android:padding="16dp"
+        android:layout_below="@+id/fail_txt"/>
+</RelativeLayout>

@@ -26,28 +26,7 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="175dp"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/teacher"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="0dp"
-                android:layout_gravity="center"
-                android:background="@drawable/box"
-                android:layout_weight="1"
-                ></ImageView>
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -61,23 +40,7 @@
                 android:id="@+id/lecturer_register"
                 android:textSize="15sp">
             </Button>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginEnd="10dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/student"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="0dp"
-            android:layout_gravity="center"
-            android:background="@drawable/box"
-            android:layout_weight="1"
-            ></ImageView>
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -90,34 +53,12 @@
             android:textColor="@color/grey"
             android:textSize="15sp">
         </Button>
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="175dp"
-        android:orientation="horizontal">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/teacher"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="0dp"
-                android:layout_gravity="center"
-                android:background="@drawable/box"
-                android:layout_weight="1"
-                ></ImageView>
+
             <Button
-                android:id="@+id/btn_lecreg"
+                android:id="@+id/btn_fail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lecturer deregistration"
+                android:text="Fail List"
                 android:textAlignment="center"
                 android:textStyle="bold"
                 android:layout_marginTop="0dp"
@@ -126,27 +67,12 @@
                 android:textColor="@color/grey"
                 android:textSize="15sp">
             </Button>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/student"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="0dp"
-                android:layout_gravity="center"
-                android:background="@drawable/box"
-                android:layout_weight="1"
-                ></ImageView>
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Students academics"
+                android:text="Missing Marks"
+                android:id="@+id/btn_stuaca"
                 android:textAlignment="center"
                 android:textStyle="bold"
                 android:layout_marginTop="0dp"
@@ -155,29 +81,7 @@
                 android:textColor="@color/grey"
                 android:textSize="15sp">
             </Button>
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="175dp"
-        android:orientation="horizontal">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/teacher"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="0dp"
-                android:layout_gravity="center"
-                android:background="@drawable/box"
-                android:layout_weight="1"
-                ></ImageView>
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -191,58 +95,21 @@
                 android:id="@+id/mark_update"
                 android:textSize="15sp">
             </Button>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/student"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="0dp"
-                android:layout_gravity="center"
-                android:background="@drawable/box"
-                android:layout_weight="1"
-                ></ImageView>
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Students results"
+                android:text="Passlist"
                 android:textAlignment="center"
                 android:textStyle="bold"
+                android:id="@+id/passlist"
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/box"
                 android:textColor="@color/grey"
                 android:textSize="15sp">
             </Button>
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="175dp"
-        android:orientation="horizontal">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/teacher"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="0dp"
-                android:layout_gravity="center"
-                android:background="@drawable/box"
-                android:layout_weight="1"
-                ></ImageView>
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -255,23 +122,7 @@
                 android:textColor="@color/grey"
                 android:textSize="15sp">
             </Button>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/student"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="0dp"
-                android:layout_gravity="center"
-                android:background="@drawable/box"
-                android:layout_weight="1"
-                ></ImageView>
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -284,6 +135,4 @@
                 android:textColor="@color/grey"
                 android:textSize="15sp">
             </Button>
-        </LinearLayout>
-    </LinearLayout>
 </LinearLayout>

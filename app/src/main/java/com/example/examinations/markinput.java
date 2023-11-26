@@ -47,7 +47,7 @@ public class markinput extends AppCompatActivity {
 
         // view initialization
         reg = findViewById(R.id.editTextReg_no);
-        mark = findViewById(R.id.editTextMarks);
+        mark = findViewById(R.id.assign1);
         submit =findViewById(R.id.btnSubmitScores);
 
         submit.setOnClickListener(View ->{
@@ -83,8 +83,8 @@ public class markinput extends AppCompatActivity {
                 mark.setError("Please Enter valid values");
             }
             else {
-                Intent intent = new Intent(markinput.this, leclogin.class);
-                startActivity(intent);
+                //toast message
+                Toast.makeText(markinput.this, "Marks Submitted", Toast.LENGTH_SHORT).show();
             }
 
 

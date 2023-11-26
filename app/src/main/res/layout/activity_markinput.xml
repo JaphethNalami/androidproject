@@ -36,16 +36,13 @@
         android:layout_marginTop="21dp"
         android:textStyle="bold"/>
 
-    <EditText
-        android:id="@+id/editTextReg_no"
-        android:layout_width="340dp"
-        android:layout_height="51dp"
-        android:inputType="text"
-        android:layout_gravity="center"
-        android:paddingStart="12dp"
-        android:background="@drawable/box"
-        android:hint="Reg_no"
-        />
+            <Spinner
+                android:id="@+id/editTextReg_no"
+                android:layout_width="340dp"
+                android:layout_height="53dp"
+                android:background="@drawable/box"
+                android:layout_gravity="center"
+                />
 
     <TextView
         android:layout_width="340dp"
@@ -90,7 +87,7 @@
         android:textStyle="bold"/>
 
     <EditText
-        android:id="@+id/editTextMarks"
+        android:id="@+id/assign1"
         android:layout_width="343dp"
         android:layout_height="51dp"
         android:paddingStart="12dp"
@@ -98,6 +95,82 @@
         android:background="@drawable/box"
         android:layout_gravity="center"
         android:inputType="number" />
+
+            <TextView
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:text="Enter Marks"
+                android:layout_gravity="center"
+                android:textSize="16sp"
+                android:layout_marginTop="21dp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/assign2"
+                android:layout_width="343dp"
+                android:layout_height="51dp"
+                android:paddingStart="12dp"
+                android:hint="Enter Marks"
+                android:background="@drawable/box"
+                android:layout_gravity="center"
+                android:inputType="number" />
+            <TextView
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:text="Enter Marks"
+                android:layout_gravity="center"
+                android:textSize="16sp"
+                android:layout_marginTop="21dp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/cat1"
+                android:layout_width="343dp"
+                android:layout_height="51dp"
+                android:paddingStart="12dp"
+                android:hint="Enter Marks"
+                android:background="@drawable/box"
+                android:layout_gravity="center"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:text="Enter Marks"
+                android:layout_gravity="center"
+                android:textSize="16sp"
+                android:layout_marginTop="21dp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/cat2"
+                android:layout_width="343dp"
+                android:layout_height="51dp"
+                android:paddingStart="12dp"
+                android:hint="Enter Marks"
+                android:background="@drawable/box"
+                android:layout_gravity="center"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:text="Enter Marks"
+                android:layout_gravity="center"
+                android:textSize="16sp"
+                android:layout_marginTop="21dp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/exam"
+                android:layout_width="343dp"
+                android:layout_height="51dp"
+                android:paddingStart="12dp"
+                android:hint="Enter Marks"
+                android:background="@drawable/box"
+                android:layout_gravity="center"
+                android:inputType="number" />
+
 
     <Button
         android:id="@+id/btnSubmitScores"

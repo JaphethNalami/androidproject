@@ -15,6 +15,18 @@
         android:theme="@style/Theme.Examinations"
         tools:targetApi="31">
         <activity
+            android:name=".fail_list"
+            android:exported="false" />
+        <activity
+            android:name=".pass_list"
+            android:exported="false" />
+        <activity
+            android:name=".missing_marks_all"
+            android:exported="false" />
+        <activity
+            android:name=".special_list"
+            android:exported="false" />
+        <activity
             android:name=".markinput"
             android:exported="false" />
         <activity
