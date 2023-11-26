@@ -10,49 +10,61 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/red">
+        android:layout_height="51dp"
+        android:background="@color/purple">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:gravity="center"
             android:ems="10"
             android:text="Admin Dashboard"
-            android:textColor="@color/grey"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"/>
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select an activity \n to continue "
+        android:textSize="20sp"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textStyle="bold" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Lecturer registration"
-                android:textAlignment="center"
-                android:textStyle="bold"
-                android:layout_marginTop="0dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/box"
-                android:textColor="@color/grey"
-                android:id="@+id/lecturer_register"
-                android:textSize="15sp">
-            </Button>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Students administartion"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/box"
-            android:textColor="@color/grey"
-            android:textSize="15sp">
-        </Button>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit student marks"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/cousebox"
+        android:id="@+id/mark_update"
+        android:textSize="15sp">
+    </Button>
+
+    <Button
+        android:id="@+id/special"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Special Examinations"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/cousebox"
+        android:textSize="15sp">
+    </Button>
 
             <Button
                 android:id="@+id/btn_fail"
@@ -61,38 +73,37 @@
                 android:text="Fail List"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:layout_marginTop="0dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/box"
-                android:textColor="@color/grey"
+                android:background="@drawable/cousebox"
                 android:textSize="15sp">
             </Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Partial missing marks"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/cousebox"
+        android:id="@+id/missing_partial"
+        android:textSize="15sp"/>
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Missing Marks"
+                android:text="Missing Marks All Courses"
                 android:id="@+id/btn_stuaca"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:layout_marginTop="0dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/box"
-                android:textColor="@color/grey"
-                android:textSize="15sp">
-            </Button>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Edit student marks"
-                android:textAlignment="center"
-                android:textStyle="bold"
-                android:layout_marginTop="0dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/box"
-                android:textColor="@color/grey"
-                android:id="@+id/mark_update"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/cousebox"
                 android:textSize="15sp">
             </Button>
 
@@ -103,12 +114,25 @@
                 android:textAlignment="center"
                 android:textStyle="bold"
                 android:id="@+id/passlist"
-                android:layout_marginTop="0dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/box"
-                android:textColor="@color/grey"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/cousebox"
                 android:textSize="15sp">
             </Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Second Trial students"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/cousebox"
+        android:textSize="15sp">
+    </Button>
 
             <Button
                 android:layout_width="match_parent"
@@ -116,23 +140,11 @@
                 android:text="Print student results summary"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:layout_marginTop="0dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/box"
-                android:textColor="@color/grey"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/cousebox"
                 android:textSize="15sp">
             </Button>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Students administartion"
-                android:textAlignment="center"
-                android:textStyle="bold"
-                android:layout_marginTop="0dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/box"
-                android:textColor="@color/grey"
-                android:textSize="15sp">
-            </Button>
 </LinearLayout>

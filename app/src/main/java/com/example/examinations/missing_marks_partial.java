@@ -15,7 +15,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class special_list extends AppCompatActivity {
+public class missing_marks_partial extends AppCompatActivity {
 
     private ListView listView;
     private ArrayAdapter<String> adapter;
@@ -24,7 +24,7 @@ public class special_list extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_special_list);
+        setContentView(R.layout.activity_missing_marks_partial);
 
         listView = findViewById(R.id.listView);
         studentList = new ArrayList<>();
