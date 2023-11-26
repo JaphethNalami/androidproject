@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class adminhomepage extends AppCompatActivity {
 
-    Button btn_mark_update, btn_lecturer_registration,list,passlist,fail;
+    Button btn_mark_update, miss_partial,list,passlist,fail, special;
 
 
     @Override
@@ -20,17 +20,18 @@ public class adminhomepage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adminhomepage);
 
-        btn_lecturer_registration = findViewById(R.id.lecturer_register);
+        miss_partial = findViewById(R.id.missing_partial);
         btn_mark_update = findViewById(R.id.mark_update);
         list = findViewById(R.id.btn_stuaca);
         passlist = findViewById(R.id.passlist);
         fail = findViewById(R.id.btn_fail);
+        special = findViewById(R.id.special);
 
 
-        /*btn_lecturer_registration.setOnClickListener(v -> {
-            Intent intent = new Intent(adminhomepage.this, admin_lecregister.class);
+        miss_partial.setOnClickListener(v -> {
+            Intent intent = new Intent(adminhomepage.this, missing_marks_partial.class);
             startActivity(intent);
-        });*/
+        });
 
         btn_mark_update.setOnClickListener(v -> {
             Intent intent = new Intent(adminhomepage.this, markupdate.class);
@@ -49,6 +50,11 @@ public class adminhomepage extends AppCompatActivity {
 
         fail.setOnClickListener(v -> {
             Intent intent = new Intent(adminhomepage.this, fail_list.class);
+            startActivity(intent);
+        });
+
+        special.setOnClickListener(v -> {
+            Intent intent = new Intent(adminhomepage.this, special_list.class);
             startActivity(intent);
         });
 

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".special_list">
+    tools:context=".missing_marks_partial">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_below="@+id/miss_text"
-                android:text="The following student have been approved for special examinations and are advised to visit the department for further direction"/>
+                android:text="The following student have missing marks in some courses and are advised to visit the department for further direction"/>
 
             <ListView
                 android:id="@+id/listView"
