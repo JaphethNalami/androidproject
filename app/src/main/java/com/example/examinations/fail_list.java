@@ -41,6 +41,7 @@ public class fail_list extends AppCompatActivity {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     // Extracting necessary information from the snapshot
                     String fullName = snapshot.child("fullname").getValue(String.class);
+                    String regNumber = snapshot.child("reg_no").getValue(String.class);
                     DataSnapshot coursesSnapshot = snapshot.child("Courses");
                     Double meanDouble = coursesSnapshot.child("mean").getValue(Double.class);
 
@@ -54,7 +55,7 @@ public class fail_list extends AppCompatActivity {
 
                     // Check if the mean is less than 40
                     if (mean < 40) {
-                        String listItem = fullName + "\nMean: " + mean;
+                        String listItem = fullName + "\nReg Number: " + regNumber + "\nMean: " + mean;
                         studentList.add(listItem);
                     }
                 }
@@ -62,12 +63,10 @@ public class fail_list extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
             }
 
-
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 // Handle error
             }
         });
     }
-    }
+}
