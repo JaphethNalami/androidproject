@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -68,6 +69,11 @@ public class markinput extends AppCompatActivity {
             return;
         }
 
+        // Calculate total
+        double total = (Double.parseDouble(assignment1Mark) + Double.parseDouble(assignment2Mark)) / 2
+                + (Double.parseDouble(cat1Mark) + Double.parseDouble(cat2Mark)) / 2
+                + Double.parseDouble(examMark);
+
         // Create a map to store assessment values
         Map<String, String> assessmentsMap = new HashMap<>();
         assessmentsMap.put("Assignment1", assignment1Mark);
@@ -75,15 +81,56 @@ public class markinput extends AppCompatActivity {
         assessmentsMap.put("Cat1", cat1Mark);
         assessmentsMap.put("Cat2", cat2Mark);
         assessmentsMap.put("Exam", examMark);
+        assessmentsMap.put("Total", String.valueOf(total)); // Add total to the map
 
         // Save marks to the Realtime Database under the selected course (unit)
         databaseReference.child("Students").child(selectedRegistrationNumber).child("Courses")
                 .child(selectedCourse).setValue(assessmentsMap)
                 .addOnSuccessListener(aVoid -> {
                     Toast.makeText(this, "Marks submitted successfully", Toast.LENGTH_SHORT).show();
-                    // Optionally, you can save marks to Firebase Storage here if needed
+
+                    // Update the "Mean" and "Sum" after submitting unit marks
+                    updateMeanAndSum(selectedRegistrationNumber);
                 })
                 .addOnFailureListener(e -> Toast.makeText(this, "Failed to submit marks: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+    }
+
+    // Helper method to update "Mean" and "Sum"
+    private void updateMeanAndSum(String selectedRegistrationNumber) {
+        DatabaseReference studentRef = databaseReference.child("Students").child(selectedRegistrationNumber);
+
+        studentRef.child("Courses").get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                DataSnapshot coursesSnapshot = task.getResult();
+                if (coursesSnapshot.exists()) {
+                    double sum = 0.0;
+                    int totalUnits = 0;
+
+                    // Calculate sum of unit totals
+                    for (DataSnapshot courseSnapshot : coursesSnapshot.getChildren()) {
+                        // Use getDouble to directly retrieve the value as a double
+                        Double unitTotal = courseSnapshot.child("Total").getValue(Double.class);
+                        if (unitTotal != null) {
+                            sum += unitTotal;
+                            totalUnits++;
+                        }
+                    }
+
+
+                    // Calculate mean
+                    double mean = sum / totalUnits;
+
+                    // Update "Mean" and "Sum" in the Realtime Database
+                    studentRef.child("Mean").setValue(String.valueOf(mean))
+                            .addOnSuccessListener(aVoid -> Toast.makeText(this, "Mean updated successfully", Toast.LENGTH_SHORT).show())
+                            .addOnFailureListener(e -> Toast.makeText(this, "Failed to update Mean: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+
+                    studentRef.child("Sum").setValue(String.valueOf(sum))
+                            .addOnSuccessListener(aVoid -> Toast.makeText(this, "Sum updated successfully", Toast.LENGTH_SHORT).show())
+                            .addOnFailureListener(e -> Toast.makeText(this, "Failed to update Sum: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+                }
+            }
+        });
     }
 
     // Helper method to validate if a mark is within the specified range
