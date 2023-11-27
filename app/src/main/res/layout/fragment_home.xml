@@ -4,8 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.home.HomeFragment"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:background="@color/red"
+        android:text="Courses Save"
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/btn_print"
@@ -14,7 +25,8 @@
         android:text="Courses Print"
         android:textSize="30sp"
         android:background="@color/red"
-        android:layout_gravity="center"
         android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"/>
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="60dp"/>
+
 </LinearLayout>

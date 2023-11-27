@@ -130,6 +130,19 @@
 
         </EditText>
 
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:id="@+id/semester"
+            android:background="@drawable/box"
+            android:spinnerMode="dropdown">
+
+        </Spinner>
+
+
         <Button
             android:id="@+id/btn_datareg"
             android:layout_width="186dp"

@@ -45,6 +45,7 @@ dependencies {
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation("com.google.firebase:firebase-storage:20.3.0")
     dependencies {
         implementation("androidx.appcompat:appcompat:1.6.1")
         implementation("com.google.android.material:material:1.10.0")
