@@ -33,10 +33,7 @@
             android:name=".special_examinations"
             android:exported="false" />
         <activity
-            android:name=".mark_input"
-            android:exported="false" />
-        <activity
-            android:name=".admin_lecregister"
+            android:name=".missing_marks_partial"
             android:exported="false" />
         <activity
             android:name=".lecregister"
