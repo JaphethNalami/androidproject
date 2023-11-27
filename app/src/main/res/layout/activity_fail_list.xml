@@ -19,7 +19,7 @@
         android:id="@+id/fail_txt"
         android:layout_width="match_parent"
         android:layout_height="51dp"
-        android:text="Fail"
+        android:text="SUPLIMENTARY  LIST"
         android:background="@color/purple"
         android:gravity="center"
         android:textSize="30sp"
