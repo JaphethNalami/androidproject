@@ -1,7 +1,6 @@
 package com.example.examinations;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -9,11 +8,19 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class markinput extends AppCompatActivity {
 
     private EditText assignment1, assignment2, cat1, cat2, exam;
     private Spinner studentSpinner, lecCourseSpinner;
 
+    // Add a reference to your Firebase Realtime Database
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,52 +36,45 @@ public class markinput extends AppCompatActivity {
         studentSpinner = findViewById(R.id.studentSpinner);
         lecCourseSpinner = findViewById(R.id.lecCourseSpinner);
 
+        // Initialize your Firebase Realtime Database reference
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+
         Button submitButton = findViewById(R.id.submitMarks);
-        submitButton.setOnClickListener(v -> {
-            submitMarks();
-        });
+        submitButton.setOnClickListener(v -> submitMarks());
     }
 
     private void submitMarks() {
-        try {
-            // Retrieve marks from EditText fields
-            int assignment1Marks = Integer.parseInt(assignment1.getText().toString().trim());
-            int assignment2Marks = Integer.parseInt(assignment2.getText().toString().trim());
-            int cat1Marks = Integer.parseInt(cat1.getText().toString().trim());
-            int cat2Marks = Integer.parseInt(cat2.getText().toString().trim());
-            int examMarks = Integer.parseInt(exam.getText().toString().trim());
+        // Extract data from UI elements
+        String selectedRegistrationNumber = studentSpinner.getSelectedItem().toString();
+        String selectedCourse = lecCourseSpinner.getSelectedItem().toString();
+        String assignment1Mark = assignment1.getText().toString();
+        String assignment2Mark = assignment2.getText().toString();
+        String cat1Mark = cat1.getText().toString();
+        String cat2Mark = cat2.getText().toString();
+        String examMark = exam.getText().toString();
 
-            // Validate marks
-            if (assignment1Marks <= 0 || assignment1Marks > 10 ||
-                    assignment2Marks <= 0 || assignment2Marks > 20 ||
-                    cat1Marks <= 0 || cat1Marks > 20 ||
-                    cat2Marks <= 0 || cat2Marks > 20 ||
-                    examMarks <= 0 || examMarks > 70
-            ) {
-                // Display an error toast
-                Toast.makeText(this, "Invalid marks. Please check the values.", Toast.LENGTH_SHORT).show();
-            } else {
-                // Log the successful validation
-                Log.d("SubmitMarks", "Marks validation successful");
-
-                // Perform the submission logic here
-                // ...
-
-                // Optional: You can also check if the Spinners are selected
-                String selectedStudent = studentSpinner.getSelectedItem().toString();
-                String selectedCourse = lecCourseSpinner.getSelectedItem().toString();
-                if (selectedStudent.isEmpty() || selectedCourse.isEmpty()) {
-                    // Display an error toast for Spinners
-                    Toast.makeText(this, "Please select a student and course.", Toast.LENGTH_SHORT).show();
-                } else {
-                    // Log the successful selection
-                    Log.d("SubmitMarks", "Student: " + selectedStudent + ", Course: " + selectedCourse);
-                }
-            }
-        } catch (NumberFormatException e) {
-            // Handle the case where the input is not a valid number
-            Toast.makeText(this, "Invalid input. Please enter numeric values.", Toast.LENGTH_SHORT).show();
-            e.printStackTrace(); // Log the exception for further investigation
+        // Validate input data (you may want to add more validation)
+        if (assignment1Mark.isEmpty() || assignment2Mark.isEmpty() || cat1Mark.isEmpty()
+                || cat2Mark.isEmpty() || examMark.isEmpty()) {
+            Toast.makeText(this, "Please fill in all marks", Toast.LENGTH_SHORT).show();
+            return;
         }
+
+        // Create a map to store assessment values
+        Map<String, String> assessmentsMap = new HashMap<>();
+        assessmentsMap.put("Assignment1", assignment1Mark);
+        assessmentsMap.put("Assignment2", assignment2Mark);
+        assessmentsMap.put("Cat1", cat1Mark);
+        assessmentsMap.put("Cat2", cat2Mark);
+        assessmentsMap.put("Exam", examMark);
+
+        // Save marks to the Realtime Database under the selected course (unit)
+        databaseReference.child("Students").child(selectedRegistrationNumber).child("Courses")
+                .child(selectedCourse).setValue(assessmentsMap)
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(this, "Marks submitted successfully", Toast.LENGTH_SHORT).show();
+                    // Optionally, you can save marks to Firebase Storage here if needed
+                })
+                .addOnFailureListener(e -> Toast.makeText(this, "Failed to submit marks: " + e.getMessage(), Toast.LENGTH_SHORT).show());
     }
 }
