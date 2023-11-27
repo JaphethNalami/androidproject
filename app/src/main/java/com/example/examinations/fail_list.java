@@ -44,22 +44,28 @@ public class fail_list extends AppCompatActivity {
                     String regNumber = snapshot.child("reg_no").getValue(String.class);
                     DataSnapshot coursesSnapshot = snapshot.child("Courses");
                     Double meanDouble = coursesSnapshot.child("mean").getValue(Double.class);
+                    Double count1 = coursesSnapshot.child("count").getValue(Double.class);
 
-                    // Declare mean outside the if block
-                    double mean = 0.0;  // Default value or any other appropriate default value
 
-                    // Check if the mean is not null and then convert it to a primitive double
+
+                    double mean = 0;
+                    double count = 0;
+
+// Check if the mean is not null and then convert it to a primitive double
                     if (meanDouble != null) {
-                        mean = meanDouble; // Now mean is a primitive double
+                        if(count1 != null){
+                            mean = meanDouble; // Now mean is a primitive double
+                            count = count1;
+                        }
                     }
 
-                    // Check if the mean is less than 40
-                    if (mean < 40) {
+// Check if the mean is greater than or equal to 40 and count1 is equal to 5
+                    if (mean <= 40 && count == 5) {
                         String listItem = fullName + "\nReg Number: " + regNumber + "\nMean: " + mean;
                         studentList.add(listItem);
                     }
-                }
 
+                }
                 adapter.notifyDataSetChanged();
             }
 

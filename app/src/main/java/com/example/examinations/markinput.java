@@ -252,6 +252,7 @@ public class markinput extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 double sum = 0;
                 int numberOfUnits = 0;
+                int count = 0;
 
                 for (DataSnapshot courseSnapshot : dataSnapshot.getChildren()) {
                     String courseName = courseSnapshot.getKey();
@@ -259,6 +260,7 @@ public class markinput extends AppCompatActivity {
                     if (courseName != null && courseSnapshot.child("Marks").child("Total").getValue() != null) {
                         double totalMark = courseSnapshot.child("Marks").child("Total").getValue(Double.class);
                         sum += totalMark;
+                        count +=(totalMark/totalMark);
                         numberOfUnits++;
                     }
                 }
@@ -270,6 +272,7 @@ public class markinput extends AppCompatActivity {
                 Map<String, Object> updateValues = new HashMap<>();
                 updateValues.put("sum", sum);
                 updateValues.put("mean", mean);
+                updateValues.put("count", count);
 
                 databaseReference.child("Students").child(registrationNumber).child("Courses").updateChildren(updateValues)
                         .addOnSuccessListener(aVoid -> Log.d(TAG, "Sum and Mean updated successfully"))

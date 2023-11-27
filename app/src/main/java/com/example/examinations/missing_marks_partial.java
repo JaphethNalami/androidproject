@@ -41,9 +41,23 @@ public class missing_marks_partial extends AppCompatActivity {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     String fullName = snapshot.child("fullname").getValue(String.class);
                     String regNumber = snapshot.child("reg_no").getValue(String.class);
+                    DataSnapshot coursesSnapshot = snapshot.child("Courses");
+                    Double meanDouble = coursesSnapshot.child("count").getValue(Double.class);
 
-                    String listItem = fullName + "\nReg. No: " + regNumber;
-                    studentList.add(listItem);
+                    // Declare mean outside the if block
+                    double mean = 0.0;  // Default value or any other appropriate default value
+
+                    // Check if the mean is not null and then convert it to a primitive double
+                    if (meanDouble != null){
+                        mean = meanDouble; // Now mean is a primitive double
+                    }
+                    // Check if the mean is less than 1
+                    if (mean < 5) {
+                        String listItem = fullName + "\nReg Number: " + regNumber;
+                        studentList.add(listItem);
+                    }
+
+
                 }
 
                 adapter.notifyDataSetChanged();
