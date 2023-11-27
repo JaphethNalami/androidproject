@@ -39,15 +39,30 @@ public class fail_list extends AppCompatActivity {
                 studentList.clear();
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    // Extracting necessary information from the snapshot
                     String fullName = snapshot.child("fullname").getValue(String.class);
-                    String courses = snapshot.child("Courses").getValue().toString();
+                    DataSnapshot coursesSnapshot = snapshot.child("Courses");
+                    Double meanDouble = coursesSnapshot.child("mean").getValue(Double.class);
 
-                    String listItem = fullName + "\nCourses: " + courses;
-                    studentList.add(listItem);
+                    // Declare mean outside the if block
+                    double mean = 0.0;  // Default value or any other appropriate default value
+
+                    // Check if the mean is not null and then convert it to a primitive double
+                    if (meanDouble != null) {
+                        mean = meanDouble; // Now mean is a primitive double
+                    }
+
+                    // Check if the mean is less than 40
+                    if (mean < 40) {
+                        String listItem = fullName + "\nMean: " + mean;
+                        studentList.add(listItem);
+                    }
                 }
 
                 adapter.notifyDataSetChanged();
             }
+
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -55,4 +70,4 @@ public class fail_list extends AppCompatActivity {
             }
         });
     }
-}
+    }
