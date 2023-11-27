@@ -53,10 +53,18 @@ public class markinput extends AppCompatActivity {
         String cat2Mark = cat2.getText().toString();
         String examMark = exam.getText().toString();
 
-        // Validate input data (you may want to add more validation)
+        // Validate input data
         if (assignment1Mark.isEmpty() || assignment2Mark.isEmpty() || cat1Mark.isEmpty()
                 || cat2Mark.isEmpty() || examMark.isEmpty()) {
             Toast.makeText(this, "Please fill in all marks", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Validate marks range
+        if (!isValidMark(assignment1Mark, 10) || !isValidMark(assignment2Mark, 10)
+                || !isValidMark(cat1Mark, 30) || !isValidMark(cat2Mark, 30)
+                || !isValidMark(examMark, 60)) {
+            Toast.makeText(this, "Invalid mark values. Please check the ranges.", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -76,5 +84,15 @@ public class markinput extends AppCompatActivity {
                     // Optionally, you can save marks to Firebase Storage here if needed
                 })
                 .addOnFailureListener(e -> Toast.makeText(this, "Failed to submit marks: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+    }
+
+    // Helper method to validate if a mark is within the specified range
+    private boolean isValidMark(String mark, int max) {
+        try {
+            int markValue = Integer.parseInt(mark);
+            return markValue >= 0 && markValue <= max;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }
