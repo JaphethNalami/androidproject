@@ -1,27 +1,42 @@
 package com.example.examinations;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class markinput extends AppCompatActivity {
 
     private EditText assignment1, assignment2, cat1, cat2, exam;
     private Spinner studentSpinner, lecCourseSpinner;
-
-    // Add a reference to your Firebase Realtime Database
     private DatabaseReference databaseReference;
+    private String selectedFullName;
+    private DataSnapshot dataSnapshot; // Add this line at the beginning of your class
+
+    private static final String TAG = "MarkInputActivity";
+    private Handler handler;  // Added handler for UI thread operations
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,106 +55,250 @@ public class markinput extends AppCompatActivity {
         // Initialize your Firebase Realtime Database reference
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
+        handler = new Handler();  // Initialize the handler
+
+        // Fetch Student Name from the database and populate the student Spinner
+        fetchStudentFullName();
+
+        // Set up ArrayAdapter for Course Spinner using the array from strings.xml
+        ArrayAdapter<CharSequence> courseAdapter = ArrayAdapter.createFromResource(this, R.array.units, android.R.layout.simple_spinner_item);
+        courseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        lecCourseSpinner.setAdapter(courseAdapter);
+
+        // Set up a listener for changes in the course Spinner
+        lecCourseSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // Handle the selected course change if needed
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Do nothing here
+            }
+        });
+
+        // Set up a listener for changes in the student Spinner
+        studentSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // Handle the selected student change
+                selectedFullName = getSelectedFullName(); // Store the selected registration number
+                fetchStudentCourses(selectedFullName);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Do nothing here
+            }
+        });
+
         Button submitButton = findViewById(R.id.submitMarks);
-        submitButton.setOnClickListener(v -> submitMarks());
+        submitButton.setOnClickListener(v -> {
+            submitButton.setEnabled(false);  // Disable the button during processing
+            submitMarks();
+        });
+
     }
 
-    private void submitMarks() {
-        // Extract data from UI elements
-        String selectedRegistrationNumber = studentSpinner.getSelectedItem().toString();
-        String selectedCourse = lecCourseSpinner.getSelectedItem().toString();
-        String assignment1Mark = assignment1.getText().toString();
-        String assignment2Mark = assignment2.getText().toString();
-        String cat1Mark = cat1.getText().toString();
-        String cat2Mark = cat2.getText().toString();
-        String examMark = exam.getText().toString();
+    private void fetchStudentFullName() {
+        databaseReference.child("Students").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                dataSnapshot = snapshot; // Assign dataSnapshot here
+                List<String> fullNames = new ArrayList<>();
 
-        // Validate input data
-        if (assignment1Mark.isEmpty() || assignment2Mark.isEmpty() || cat1Mark.isEmpty()
-                || cat2Mark.isEmpty() || examMark.isEmpty()) {
-            Toast.makeText(this, "Please fill in all marks", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        // Validate marks range
-        if (!isValidMark(assignment1Mark, 10) || !isValidMark(assignment2Mark, 10)
-                || !isValidMark(cat1Mark, 30) || !isValidMark(cat2Mark, 30)
-                || !isValidMark(examMark, 60)) {
-            Toast.makeText(this, "Invalid mark values. Please check the ranges.", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        // Calculate total
-        double total = (Double.parseDouble(assignment1Mark) + Double.parseDouble(assignment2Mark)) / 2
-                + (Double.parseDouble(cat1Mark) + Double.parseDouble(cat2Mark)) / 2
-                + Double.parseDouble(examMark);
-
-        // Create a map to store assessment values
-        Map<String, String> assessmentsMap = new HashMap<>();
-        assessmentsMap.put("Assignment1", assignment1Mark);
-        assessmentsMap.put("Assignment2", assignment2Mark);
-        assessmentsMap.put("Cat1", cat1Mark);
-        assessmentsMap.put("Cat2", cat2Mark);
-        assessmentsMap.put("Exam", examMark);
-        assessmentsMap.put("Total", String.valueOf(total)); // Add total to the map
-
-        // Save marks to the Realtime Database under the selected course (unit)
-        databaseReference.child("Students").child(selectedRegistrationNumber).child("Courses")
-                .child(selectedCourse).setValue(assessmentsMap)
-                .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(this, "Marks submitted successfully", Toast.LENGTH_SHORT).show();
-
-                    // Update the "Mean" and "Sum" after submitting unit marks
-                    updateMeanAndSum(selectedRegistrationNumber);
-                })
-                .addOnFailureListener(e -> Toast.makeText(this, "Failed to submit marks: " + e.getMessage(), Toast.LENGTH_SHORT).show());
-    }
-
-    // Helper method to update "Mean" and "Sum"
-    private void updateMeanAndSum(String selectedRegistrationNumber) {
-        DatabaseReference studentRef = databaseReference.child("Students").child(selectedRegistrationNumber);
-
-        studentRef.child("Courses").get().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                DataSnapshot coursesSnapshot = task.getResult();
-                if (coursesSnapshot.exists()) {
-                    double sum = 0.0;
-                    int totalUnits = 0;
-
-                    // Calculate sum of unit totals
-                    for (DataSnapshot courseSnapshot : coursesSnapshot.getChildren()) {
-                        // Use getDouble to directly retrieve the value as a double
-                        Double unitTotal = courseSnapshot.child("Total").getValue(Double.class);
-                        if (unitTotal != null) {
-                            sum += unitTotal;
-                            totalUnits++;
-                        }
+                for (DataSnapshot studentSnapshot : dataSnapshot.getChildren()) {
+                    String fullName = studentSnapshot.child("fullname").getValue(String.class);
+                    if (fullName != null) {
+                        fullNames.add(fullName);
                     }
-
-
-                    // Calculate mean
-                    double mean = sum / totalUnits;
-
-                    // Update "Mean" and "Sum" in the Realtime Database
-                    studentRef.child("Mean").setValue(String.valueOf(mean))
-                            .addOnSuccessListener(aVoid -> Toast.makeText(this, "Mean updated successfully", Toast.LENGTH_SHORT).show())
-                            .addOnFailureListener(e -> Toast.makeText(this, "Failed to update Mean: " + e.getMessage(), Toast.LENGTH_SHORT).show());
-
-                    studentRef.child("Sum").setValue(String.valueOf(sum))
-                            .addOnSuccessListener(aVoid -> Toast.makeText(this, "Sum updated successfully", Toast.LENGTH_SHORT).show())
-                            .addOnFailureListener(e -> Toast.makeText(this, "Failed to update Sum: " + e.getMessage(), Toast.LENGTH_SHORT).show());
                 }
+
+                // Set up ArrayAdapter for Student Spinner
+                ArrayAdapter<String> studentAdapter = new ArrayAdapter<>(markinput.this, android.R.layout.simple_spinner_item, fullNames);
+                studentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                studentSpinner.setAdapter(studentAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handle errors if needed
+                Log.e(TAG, "Error fetching full names: " + databaseError.getMessage());
             }
         });
     }
 
-    // Helper method to validate if a mark is within the specified range
-    private boolean isValidMark(String mark, int max) {
+    private String getSelectedFullName() {
+        String selectedFullName = studentSpinner.getSelectedItem().toString();
+        // Fetch registration number based on the selected full name
+        for (DataSnapshot studentSnapshot : dataSnapshot.getChildren()) {
+            String fullName = studentSnapshot.child("fullname").getValue(String.class);
+            String registrationNumber = studentSnapshot.getKey();
+            if (fullName != null && fullName.equals(selectedFullName)) {
+                return registrationNumber;
+            }
+        }
+        return null; // Handle the case where the registration number is not found
+    }
+
+    // Updated method to fetch courses dynamically from the Realtime Database
+    private void fetchStudentCourses(String selectedRegistrationNumber) {
+        databaseReference.child("Students").child(selectedRegistrationNumber).child("Courses")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        List<String> courses = new ArrayList<>();
+
+                        for (DataSnapshot courseSnapshot : dataSnapshot.getChildren()) {
+                            String courseName = courseSnapshot.getKey();
+                            if (courseName != null) {
+                                courses.add(courseName);
+                            }
+                        }
+
+                        // Set up ArrayAdapter for Course Spinner
+                        ArrayAdapter<String> courseAdapter = new ArrayAdapter<>(markinput.this, android.R.layout.simple_spinner_item, courses);
+                        courseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        lecCourseSpinner.setAdapter(courseAdapter);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        // Handle errors if needed
+                        Log.e(TAG, "Error fetching courses: " + databaseError.getMessage());
+                    }
+                });
+    }
+
+
+    private void submitMarks() {
+        String selectedRegistrationNumber = getSelectedFullName(); // Store the selected registration number
+        String selectedCourse = lecCourseSpinner.getSelectedItem().toString(); // Store the selected course
+
+        // Validate the input fields
+        if (TextUtils.isEmpty(selectedRegistrationNumber)) {
+            showToast("Please select a student");
+            return;
+        }
+
+        if (TextUtils.isEmpty(selectedCourse)) {
+            showToast("Please select a course");
+            return;
+        }
+
+        String assignment1Mark = assignment1.getText().toString().trim();
+        String assignment2Mark = assignment2.getText().toString().trim();
+        String cat1Mark = cat1.getText().toString().trim();
+        String cat2Mark = cat2.getText().toString().trim();
+        String examMark = exam.getText().toString().trim();
+
+        if (!isValidMark(assignment1Mark, 20)) {
+            showToast("Please enter a valid Assignment 1 mark");
+            return;
+        }
+
+        if (!isValidMark(assignment2Mark, 20)) {
+            showToast("Please enter a valid Assignment 2 mark");
+            return;
+        }
+
+        if (!isValidMark(cat1Mark, 20)) {
+            showToast("Please enter a valid CAT 1 mark");
+            return;
+        }
+
+        if (!isValidMark(cat2Mark, 20)) {
+            showToast("Please enter a valid CAT 2 mark");
+            return;
+        }
+
+        if (!isValidMark(examMark, 60)) {
+            showToast("Please enter a valid Exam mark");
+            return;
+        }
+
+        // Store the marks in a Map
+        Map<String, Object> marks = new HashMap<>();
+        marks.put("Assignment 1", assignment1Mark);
+        marks.put("Assignment 2", assignment2Mark);
+        marks.put("CAT 1", cat1Mark);
+        marks.put("CAT 2", cat2Mark);
+        marks.put("Exam", examMark);
+
+        double total = (Double.parseDouble(assignment1Mark) + Double.parseDouble(assignment2Mark)) / 2
+                + (Double.parseDouble(cat1Mark) + Double.parseDouble(cat2Mark)) / 2
+                + Double.parseDouble(examMark);
+
+        marks.put("Total", total);
+
+        // Update the marks in the Realtime Database
+        databaseReference.child("Students").child(selectedRegistrationNumber).child("Courses").child(selectedCourse).child("Marks")
+                .updateChildren(marks)
+                .addOnSuccessListener(aVoid -> {
+                    showToast("Marks updated successfully");
+                    updateSumAndMeanForStudent(selectedRegistrationNumber);
+                    Intent intent = new Intent(markinput.this, markinput.class);
+                    startActivity(intent);
+                })
+                .addOnFailureListener(e -> showToast("Failed to update marks: " + e.getMessage()));
+    }
+
+    private void updateSumAndMeanForStudent(String registrationNumber) {
+        DatabaseReference coursesRef = databaseReference.child("Students").child(registrationNumber).child("Courses");
+
+        coursesRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                double sum = 0;
+                int numberOfUnits = 0;
+
+                for (DataSnapshot courseSnapshot : dataSnapshot.getChildren()) {
+                    String courseName = courseSnapshot.getKey();
+
+                    if (courseName != null && courseSnapshot.child("Marks").child("Total").getValue() != null) {
+                        double totalMark = courseSnapshot.child("Marks").child("Total").getValue(Double.class);
+                        sum += totalMark;
+                        numberOfUnits++;
+                    }
+                }
+
+                // Calculate the mean
+                double mean = numberOfUnits > 0 ? sum / numberOfUnits : 0;
+
+                // Update the sum and mean in the Realtime Database
+                Map<String, Object> updateValues = new HashMap<>();
+                updateValues.put("sum", sum);
+                updateValues.put("mean", mean);
+
+                databaseReference.child("Students").child(registrationNumber).child("Courses").updateChildren(updateValues)
+                        .addOnSuccessListener(aVoid -> Log.d(TAG, "Sum and Mean updated successfully"))
+                        .addOnFailureListener(e -> Log.e(TAG, "Failed to update Sum and Mean: " + e.getMessage()));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handle errors if needed
+                Log.e(TAG, "Error fetching courses: " + databaseError.getMessage());
+            }
+        });
+    }
+
+
+    private boolean isValidMark(String mark, int maxMark) {
+        if (TextUtils.isEmpty(mark)) {
+            return false;
+        }
+
         try {
-            int markValue = Integer.parseInt(mark);
-            return markValue >= 0 && markValue <= max;
+            double markValue = Double.parseDouble(mark);
+            return markValue >= 0 && markValue <= maxMark;
         } catch (NumberFormatException e) {
             return false;
         }
+    }
+
+    private void showToast(String message) {
+        handler.post(() -> Toast.makeText(markinput.this, message, Toast.LENGTH_SHORT).show());
     }
 }
