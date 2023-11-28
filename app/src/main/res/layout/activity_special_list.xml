@@ -16,7 +16,7 @@
                 android:id="@+id/miss_text"
                 android:layout_width="match_parent"
                 android:layout_height="51dp"
-                android:text="SPECIAL EXAMINATIONS LIST"
+                android:text="SPECIAL LIST"
                 android:gravity="center"
                 android:background="@color/purple"
                 android:textColor="@color/white"
