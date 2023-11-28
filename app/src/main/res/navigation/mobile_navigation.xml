@@ -18,12 +18,6 @@
         tools:layout="@layout/fragment_courses" />
 
     <fragment
-        android:id="@+id/nav_special"
-        android:name="com.example.examinations.ui.special.SpecialFragment"
-        android:label="@string/menu_special"
-        tools:layout="@layout/fragment_special" />
-
-    <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.example.examinations.ui.account.AccountFragment"
         android:label="@string/menu_account"

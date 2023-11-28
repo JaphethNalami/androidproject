@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Examinations"
         tools:targetApi="31">
         <activity
+            android:name=".overal_summary"
+            android:exported="false" />
+        <activity
             android:name=".fail_list"
             android:exported="false" />
         <activity

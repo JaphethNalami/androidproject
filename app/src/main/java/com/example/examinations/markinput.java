@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -91,6 +92,17 @@ public class markinput extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parentView) {
                 // Do nothing here
             }
+        });
+
+        Button log = findViewById(R.id.logout);
+        log.setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+                Toast.makeText(markinput.this, "Logged out successfully", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(markinput.this, MainActivity.class);
+                startActivity(intent);
+            }
+
         });
 
         Button submitButton = findViewById(R.id.submitMarks);

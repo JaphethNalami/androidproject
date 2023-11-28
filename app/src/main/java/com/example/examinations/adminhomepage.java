@@ -10,9 +10,11 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class adminhomepage extends AppCompatActivity {
 
-    Button btn_mark_update, miss_partial,list,passlist,fail, special;
+    Button btn_mark_update, miss_partial,list,passlist,fail, special,print;
 
 
     @Override
@@ -26,6 +28,7 @@ public class adminhomepage extends AppCompatActivity {
         passlist = findViewById(R.id.passlist);
         fail = findViewById(R.id.btn_fail);
         special = findViewById(R.id.special);
+         print = findViewById(R.id.print);
 
 
         miss_partial.setOnClickListener(v -> {
@@ -56,6 +59,19 @@ public class adminhomepage extends AppCompatActivity {
         special.setOnClickListener(v -> {
             Intent intent = new Intent(adminhomepage.this, special_list.class);
             startActivity(intent);
+        });
+        print.setOnClickListener(v -> {
+            Intent intent = new Intent(adminhomepage.this, overal_summary.class);
+            startActivity(intent);
+        });
+        Button log = findViewById(R.id.logout);
+        log.setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+                Toast.makeText(adminhomepage.this, "Logged out successfully", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(adminhomepage.this, MainActivity.class);
+                startActivity(intent);
+            }
         });
 
 
